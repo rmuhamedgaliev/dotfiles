@@ -39,10 +39,60 @@ require("packer").startup(function(use)
             ts_update()
         end
     }
-    use 'nvim-tree/nvim-web-devicons'
+    use {
+      "nvim-tree/nvim-web-devicons",
+      config = require "plugins.config.devicons"
+    }
+
+    use {
+      -- Search engine
+      "nvim-telescope/telescope.nvim",
+      requires = { "nvim-lua/plenary.nvim" },
+      config = require "plugins.config.telescope"
+    }
+
+    use {
+      "nvim-telescope/telescope-fzf-native.nvim",
+      run = "make"
+    }
+
+    use { 
+      "nvim-telescope/telescope-file-browser.nvim"
+    }
+
+    use {
+      "nvim-telescope/telescope-ui-select.nvim"
+    }
 
     use "williamboman/mason.nvim"
 
     use "williamboman/mason-lspconfig.nvim"
     use "neovim/nvim-lspconfig"
+
+    use "mfussenegger/nvim-jdtls"
+
+    use "folke/tokyonight.nvim"
+
+    use {
+      "L3MON4D3/LuaSnip",
+    }
+    use {
+        "rafamadriz/friendly-snippets",
+    }
+    ---- Completion
+    use {
+      "hrsh7th/nvim-cmp",
+      requires = {
+          "hrsh7th/cmp-nvim-lsp",
+          "hrsh7th/cmp-nvim-lua",
+          "hrsh7th/cmp-buffer",
+          "hrsh7th/cmp-path",
+          "hrsh7th/cmp-cmdline",
+          "hrsh7th/cmp-nvim-lsp-document-symbol",
+          "L3MON4D3/LuaSnip",
+          "saadparwaiz1/cmp_luasnip",
+          "lukas-reineke/cmp-under-comparator", -- Better sort completion items starting with underscore (Python)
+      },
+      config = require "plugins.config.cmp"
+  }
 end)
