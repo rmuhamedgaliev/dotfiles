@@ -1,0 +1,9 @@
+[user]
+	name = Rinat Muhamedgaliev
+	email = rinat.muhamedgaliev@gmail.com
+[core]
+	editor = vim
+[init]
+	defaultBranch = master
+[commit]
+	gpgsign = false
